@@ -1,20 +1,20 @@
 package com.wjl.springbootdemo.controller;
 
 import com.wjl.springbootdemo.service.TestService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author 吴嘉烺
- * @description
+ * @description controller
  * @date 2023/4/13
  */
 @RestController
+@RequiredArgsConstructor
 public class TestController {
 
-    @Autowired
-    private TestService testService;
+    private final TestService testService;
 
     @RequestMapping("test/testThreadPoolMonitor")
     public void testThreadPoolMonitor(int n) {

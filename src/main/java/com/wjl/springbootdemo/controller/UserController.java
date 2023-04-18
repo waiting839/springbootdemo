@@ -2,7 +2,7 @@ package com.wjl.springbootdemo.controller;
 
 import com.wjl.springbootdemo.entity.User;
 import com.wjl.springbootdemo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2023/3/24
  */
 @RestController
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @RequestMapping("user/save")
     public User save() {
