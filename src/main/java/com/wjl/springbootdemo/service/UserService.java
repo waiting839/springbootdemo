@@ -16,4 +16,11 @@ public interface UserService extends IService<User> {
      * @return
      */
     User findByNickName(String nickName);
+
+    /**
+     * 更新
+     * @param user
+     * @return
+     */
+    User update(User user);
 }

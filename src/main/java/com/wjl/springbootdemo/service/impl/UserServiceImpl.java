@@ -1,6 +1,7 @@
 package com.wjl.springbootdemo.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.wjl.springbootdemo.config.DistributedLock;
 import com.wjl.springbootdemo.entity.User;
 import com.wjl.springbootdemo.mapper.UserMapper;
 import com.wjl.springbootdemo.service.UserService;
@@ -21,5 +22,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public User findByNickName(String nickName) {
         return userMapper.findByNickName(nickName);
+    }
+
+    @Override
+    @DistributedLock(key = "User-update", errorDesc = "请不要重复提交")
+    public User update(User user) {
+        return user;
     }
 }

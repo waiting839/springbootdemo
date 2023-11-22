@@ -35,4 +35,9 @@ public class UserController {
     public User findByNickName(String nickName) {
         return userService.findByNickName(nickName);
     }
+
+    @RequestMapping("user/update")
+    public User update() {
+        return userService.update(new User());
+    }
 }
